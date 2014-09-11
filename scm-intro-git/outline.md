@@ -22,14 +22,13 @@ Tuesday, September 16, 2014
 	1. Git background (4 min)
 		1. Angry Linus
 		2. Working copy, staging area, "the cloud"
-		3. Pervasive checksums 
-	2. Getting a repository (5 min)
+	2. Getting and making changes (5 min)
+		1. Pull (and Fetch)
+		2. Commit / Push
+	3. Getting a repository (5 min)
 		1. init
 		2. clone
 		3. init through github
-	3. Getting and making changes (5 min)
-		1. Pull (and Fetch)
-		2. Commit / Push
 	4. Integration with Software Engineering through Github (5 min)
 		1. Free for academic/open-source use
 		2. File history

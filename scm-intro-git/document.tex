@@ -4,6 +4,7 @@
 %% template based on a template by Till Tantau
 %% this template is still evolving - it might differ in future releases!
 
+% \documentclass[handout]{beamer}
 \documentclass{beamer}
 
 \mode<presentation>
@@ -92,19 +93,26 @@ Kansas State University}
 \subsection[Why Source Control?]{Why use source control?}
 
 \begin{frame}
-\frametitle{``Hello''}
-\framesubtitle{Subtitles are optional}
-
-Cuz it's da bes'
+% \frametitle{``Hello''}
+% \framesubtitle{Subtitles are optional}
+\begin{itemize}
+  \uncover<1->{\item How do you share projects now?}
+  \uncover<2->{\item What happens if\ldots}
+  \begin{itemize}
+    \uncover<3->{\item You delete some code but realize later that you need it?}
+	\uncover<4->{\item You do some work on a lab machine, and then want to work on
+	your pc at home?}
+	\uncover<5->{\item Your laptop dies?}
+	\uncover<6->{\item Two people change the same file?}
+  \end{itemize}
+  \uncover<7->{\item Solution: Source Control!}
+\end{itemize}
 
 \end{frame}
 
 \subsection[Source Control History]{A history of Source Control Tools}
 
 \begin{frame}
-% \frametitle{``Hello''}
-% \framesubtitle{Subtitles are optional}
-
 \begin{table}
 \scriptsize
 \centering
@@ -117,40 +125,88 @@ Gen. & Networking & Operations & Concurrency & Examples \\\hline
 \caption{Adapted from \cite{sink:BOOK2011}}
 \end{table}
 \begin{enumerate}
-  \uncover<1->{\item RCS: No sharing }
-  \uncover<2->{\item Second item.}
+  \uncover<1->{\item SCCS: 1972, File locks, no sharing at all}
+  \uncover<2->{\item CVS, SVN: 1986 (CVS), deltas, merging}
+  \uncover<3->{\item git, Mercurial: 2005, "file system snapshots" distributed}
 \end{enumerate}
 \end{frame}
 
-% \begin{frame}
-% \frametitle{}
-% 
-% % You can create overlays
-% \begin{itemize}
-%   \item using the \texttt{pause} command:
-%   \begin{itemize}
-%     \item First item.
-%     \pause
-%     \item Second item.
-%   \end{itemize}
-%   \item using overlay specifications:
-%   \begin{itemize}
-%     \item<3-> First item.
-%     \item<4-> Second item.
-%   \end{itemize}
-%   \item using the general \texttt{uncover} command:
-%   \begin{itemize}
-%     \uncover<5->{\item First item.}
-%     \uncover<6->{\item Second item.}
-%   \end{itemize}
-% \end{itemize}
-% \end{frame}
-
 \section{git}
-\subsection[Why Source Control?]{Why use source control?}
+\subsection[Git Background]{Git Background}
+\begin{frame}
+\frametitle{Where did git come from?}
+\framesubtitle{``Git began with a bit of creative destruction and fiery
+controversy''\cite{sink:BOOK2011}}
+Git was created by Linus Torvalds (and other Linux developers) with aims of:
+\begin{itemize}
+  \uncover<1->{\item Speed}
+  \uncover<1->{\item Simplicity}
+  \uncover<1->{\item Distributivity}
+\end{itemize}
+\end{frame}
 
-\section*{Be Brave!}
+\begin{frame}
+\frametitle{Git Concepts}
+% \framesubtitle{``Git began with a bit of creative destruction and fiery
+% controversy''\cite{sink:BOOK2011}}
 
+\begin{figure}[!t] \centering
+\includegraphics[width=.4\textwidth]{figures/three-levels}
+\only<4>{\raisebox{.5\height}{\includegraphics[width=.2\textwidth]{figures/push-arrow}}}
+\only<4>{\raisebox{.25\height}{\includegraphics[width=.27\textwidth]{figures/two-clouds}}}
+\end{figure}
+\begin{itemize}
+  \uncover<1->{\item Working Directory: Your modified files}
+  \uncover<2->{\item Staging Area: Files To be shipped with the next commit}
+  \uncover<3->{\item Git Directory: The official record}
+  \uncover<4->{\item The cloud: github, \textasciitilde yourname, etc.}
+\end{itemize}
+\end{frame}
+
+\subsection[Getting and making changes]{Getting and making changes}
+
+\begin{frame}
+\frametitle{Sharing changes with git push}
+git push info. commit?
+\end{frame}
+
+\begin{frame}
+\frametitle{Getting changes with git pull}
+git pull info.  fetch?
+\end{frame}
+
+\subsection[Getting a Repository]{Getting a Repostiory}
+
+\begin{frame}
+\frametitle{Git Init -- For when you have files}
+Adapted from \cite{github-help}
+\begin{enumerate}
+  \uncover<1->{\item \texttt{\$ git init}}
+  \uncover<2->{\item \texttt{\$ git add .}}
+  \uncover<3->{\item \texttt{\$ git commit -m 'First commit'}}
+  \uncover<4->{\item \texttt{\$ git remote add origin <remote repo URL>}}
+  \uncover<5->{\item \texttt{\$ git push origin master}}
+\end{enumerate}
+\uncover<6->{Don't want to use github?  Check out
+http://support.cis.ksu.edu/UserGuide/VersionControl}
+\end{frame}
+
+\begin{frame}
+\frametitle{Git Clone -- For when you need files}
+\begin{enumerate}
+  \uncover<1->{\item \texttt{\$ git clone <remote repo URL>}}
+\end{enumerate}
+\end{frame}
+
+\subsection[Github]{Software Engineering with Github}
+
+\section{Be Brave!}
+\begin{frame}
+% \frametitle{``Hello''}
+% \framesubtitle{Subtitles are optional}
+
+\ldots and then be strong\ldots
+\end{frame}
 % \section*{Summary}
 % 
 % \begin{frame}
@@ -183,10 +239,11 @@ Gen. & Networking & Operations & Concurrency & Examples \\\hline
     Scott Chacon.
     \newblock {\em Pro Git}.
     \newblock Apress, 2009.
-%   \beamertemplatearticlebibitems
-%   \bibitem{Jemand2000}
-%     S.~Jemand.
-%     \newblock On this and that.
+%   \beamer
+  \beamertemplatearticlebibitems
+  \bibitem{github-help}
+    Github, Inc.
+    \newblock \url{https://help.github.com}
 %     \newblock {\em Journal of This and That}, 2(1):50--100, 2000.
   \end{thebibliography}
 \end{frame}
