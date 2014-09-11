@@ -1,0 +1,193 @@
+%% LaTeX Beamer presentation template (requires beamer package)
+%% see http://bitbucket.org/rivanvx/beamer/wiki/Home
+%% idea contributed by H. Turgut Uyar
+%% template based on a template by Till Tantau
+%% this template is still evolving - it might differ in future releases!
+
+\documentclass{beamer}
+
+\mode<presentation>
+{
+\usetheme{Warsaw}
+
+\setbeamercovered{transparent}
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+
+% font definitions, try \usepackage{ae} instead of the following
+% three lines if you don't like this look
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{tabulary}
+
+
+\usepackage[T1]{fontenc}
+
+
+\title{Introduction to source control with git}
+
+%\subtitle{}
+
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+\author{Sam Procter}
+% \author{\inst{1}}
+
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+\institute{Department of Computing and Information Sciences\\
+Kansas State University}
+
+\date{Tuesday, September 16, 2014}
+
+
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+\subject{Talks}
+
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+\begin{frame}<beamer>
+\frametitle{Outline}
+\tableofcontents[currentsection,currentsubsection]
+\end{frame}
+}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+% You might wish to add the option [pausesections]
+\end{frame}
+
+
+\section{Source Control Management}
+
+\subsection[Why Source Control?]{Why use source control?}
+
+\begin{frame}
+\frametitle{``Hello''}
+\framesubtitle{Subtitles are optional}
+
+Cuz it's da bes'
+
+\end{frame}
+
+\subsection[Source Control History]{A history of Source Control Tools}
+
+\begin{frame}
+% \frametitle{``Hello''}
+% \framesubtitle{Subtitles are optional}
+
+\begin{table}
+\scriptsize
+\centering
+\begin{tabulary}{\textwidth}{l|l|l|L|L}
+Gen. & Networking & Operations & Concurrency & Examples \\\hline
+1 & None & One file at a time & Locks & SCCS\\
+2 & Centralized & Multi-file & Merge before commit & CVS, SVN\\
+3 & Distributed & Changesets & Commit before merge & git, hg
+\end{tabulary}
+\caption{Adapted from \cite{sink:BOOK2011}}
+\end{table}
+\begin{enumerate}
+  \uncover<1->{\item RCS: No sharing }
+  \uncover<2->{\item Second item.}
+\end{enumerate}
+\end{frame}
+
+% \begin{frame}
+% \frametitle{}
+% 
+% % You can create overlays
+% \begin{itemize}
+%   \item using the \texttt{pause} command:
+%   \begin{itemize}
+%     \item First item.
+%     \pause
+%     \item Second item.
+%   \end{itemize}
+%   \item using overlay specifications:
+%   \begin{itemize}
+%     \item<3-> First item.
+%     \item<4-> Second item.
+%   \end{itemize}
+%   \item using the general \texttt{uncover} command:
+%   \begin{itemize}
+%     \uncover<5->{\item First item.}
+%     \uncover<6->{\item Second item.}
+%   \end{itemize}
+% \end{itemize}
+% \end{frame}
+
+\section{git}
+\subsection[Why Source Control?]{Why use source control?}
+
+\section*{Be Brave!}
+
+% \section*{Summary}
+% 
+% \begin{frame}
+% \frametitle<presentation>{Summary}
+% 
+% \begin{itemize}
+%   \item The \alert{first main message} of your talk in one or two lines.
+% \end{itemize}
+% 
+% % The following outlook is optional.
+% \vskip0pt plus.5fill
+% \begin{itemize}
+%   \item Outlook
+%   \begin{itemize}
+%     \item Something you haven't solved.
+%     \item Something else you haven't solved.
+%   \end{itemize}
+% \end{itemize}
+% \end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{References}    
+  \begin{thebibliography}{10}    
+  \beamertemplatebookbibitems
+  \bibitem{sink:BOOK2011}
+    Eric Sink.
+    \newblock {\em Version control by example}.
+    \newblock Pyrenean Gold Press, 2011.
+  \bibitem{sink:BOOK2011}
+    Scott Chacon.
+    \newblock {\em Pro Git}.
+    \newblock Apress, 2009.
+%   \beamertemplatearticlebibitems
+%   \bibitem{Jemand2000}
+%     S.~Jemand.
+%     \newblock On this and that.
+%     \newblock {\em Journal of This and That}, 2(1):50--100, 2000.
+  \end{thebibliography}
+\end{frame}
+\end{document}
