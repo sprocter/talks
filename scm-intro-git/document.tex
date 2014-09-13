@@ -4,13 +4,19 @@
 %% template based on a template by Till Tantau
 %% this template is still evolving - it might differ in future releases!
 
-% \documentclass[handout]{beamer}
-\documentclass{beamer}
+\documentclass[handout]{beamer}
+%\documentclass{beamer}
 
 \mode<presentation>
 {
-\usetheme{Warsaw}
-
+% \usetheme{Rochester}
+% \usecolortheme{seahorse}
+% \usetheme{Antibes}
+% \usecolortheme{dolphin}
+% \usetheme{Hannover}
+% \usecolortheme{whale}
+\usetheme{Pittsburgh}
+\usecolortheme{seahorse}
 \setbeamercovered{transparent}
 }
 
@@ -137,6 +143,9 @@ Gen. & Networking & Operations & Concurrency & Examples \\\hline
 \frametitle{Where did git come from?}
 \framesubtitle{``Git began with a bit of creative destruction and fiery
 controversy''\cite{sink:BOOK2011}}
+\begin{figure}[!t] \centering
+\includegraphics[width=.3\textwidth]{figures/git}
+\end{figure}
 Git was created by Linus Torvalds (and other Linux developers) with aims of:
 \begin{itemize}
   \uncover<1->{\item Speed}
@@ -151,81 +160,139 @@ Git was created by Linus Torvalds (and other Linux developers) with aims of:
 % controversy''\cite{sink:BOOK2011}}
 
 \begin{figure}[!t] \centering
-\includegraphics[width=.4\textwidth]{figures/three-levels}
-\only<4>{\raisebox{.5\height}{\includegraphics[width=.2\textwidth]{figures/push-arrow}}}
-\only<4>{\raisebox{.25\height}{\includegraphics[width=.27\textwidth]{figures/two-clouds}}}
+\only<1|handout:1>{\includegraphics[width=.3\textwidth]{figures/staging-area}}
+\only<2|handout:2>{\includegraphics[width=.4\textwidth]{figures/local-operations}}
+\only<3|handout:3>{\includegraphics[width=.8\textwidth]{figures/full-diagram}}
 \end{figure}
 \begin{itemize}
   \uncover<1->{\item Working Directory: Your modified files}
-  \uncover<2->{\item Staging Area: Files To be shipped with the next commit}
-  \uncover<3->{\item Git Directory: The official record}
-  \uncover<4->{\item The cloud: github, \textasciitilde yourname, etc.}
+  \uncover<1->{\item Staging Area: Files To be shipped with the next commit}
+  \uncover<2->{\item Git Directory: The official record}
+  \uncover<3->{\item The cloud: github, \textasciitilde yourname, etc.}
 \end{itemize}
 \end{frame}
 
 \subsection[Getting and making changes]{Getting and making changes}
 
 \begin{frame}
-\frametitle{Sharing changes with git push}
-git push info. commit?
+\frametitle{Sharing changes with git commit \& push}
+\alert{Situation:} You've created three files -- a.txt, b.txt, and c.txt. You
+want to share a.txt and b.txt, but \emph{not} c.txt.
+
+\vspace{.05\textwidth}
+
+\uncover<2->{\alert{Strategy:} Use \texttt{git add} on a.txt and b.txt.}
+
+\vspace{.05\textwidth}
+
+\begin{enumerate}
+  \uncover<3->{\item \texttt{\$ git add a.txt b.txt}}
+  \uncover<4->{\item \texttt{\$ git commit -m 'Two new files!'}}
+  \uncover<5->{\item \texttt{\$ git push}}
+\end{enumerate}
 \end{frame}
 
 \begin{frame}
-\frametitle{Getting changes with git pull}
-git pull info.  fetch?
+\frametitle{Sharing changes quickly}
+\alert{Situation:} You've changed files, but they're already tracked by git.
+
+\vspace{.05\textwidth}
+
+\uncover<2->{\alert{Strategy:} Use \texttt{git commit} with the \texttt{-a}
+flag to add everything automatically}
+
+\vspace{.05\textwidth}
+\begin{enumerate}
+  \uncover<3->{\item \texttt{\$ git commit -a -m 'Changed things'}}
+  \uncover<4->{\item \texttt{\$ git push}}
+\end{enumerate}
 \end{frame}
+
+\begin{frame}
+\frametitle{Getting changes}
+\alert{Situation:} You made changes at school, now you want to get those at
+home.
+
+\vspace{.05\textwidth}
+
+\uncover<2->{\alert{Strategy:} Use \texttt{git pull} to get the latest version
+of your files}
+
+\vspace{.05\textwidth}
+\begin{enumerate}
+  \uncover<3->{\item \texttt{\$ git pull}}
+\end{enumerate}
+\end{frame}
+
 
 \subsection[Getting a Repository]{Getting a Repostiory}
 
 \begin{frame}
-\frametitle{Git Init -- For when you have files}
-Adapted from \cite{github-help}
+\frametitle{Git Init -- You have files}
+\alert{Situation:} You've created some files, but never stored them in git.
+
+\vspace{.05\textwidth}
+
+\uncover<2->{\alert{Strategy:} Use \texttt{git init} to create a repository,
+and \texttt{git push} to share it}
+
+\vspace{.05\textwidth}
 \begin{enumerate}
-  \uncover<1->{\item \texttt{\$ git init}}
-  \uncover<2->{\item \texttt{\$ git add .}}
-  \uncover<3->{\item \texttt{\$ git commit -m 'First commit'}}
-  \uncover<4->{\item \texttt{\$ git remote add origin <remote repo URL>}}
-  \uncover<5->{\item \texttt{\$ git push origin master}}
+  \uncover<3->{\item \texttt{\$ git init}}
+  \uncover<4->{\item \texttt{\$ git add .}}
+  \uncover<5->{\item \texttt{\$ git commit -m 'First commit'}}
+  \uncover<6->{\item \texttt{\$ git remote add origin <remote repo URL>}}
+  \uncover<7->{\item \texttt{\$ git push origin master}}
 \end{enumerate}
-\uncover<6->{Don't want to use github?  Check out
-http://support.cis.ksu.edu/UserGuide/VersionControl}
+\uncover<3->{(Adapted from \cite{github-help})}
+% \uncover<8->{Don't want to use github?  Check out
+% http://support.cis.ksu.edu/UserGuide/VersionControl}
 \end{frame}
 
 \begin{frame}
-\frametitle{Git Clone -- For when you need files}
+\frametitle{Git Clone -- You need files}
+\alert{Situation:} Files you want are on github, and you've never downloaded
+them before.
+
+\vspace{.05\textwidth}
+
+\uncover<2->{\alert{Strategy:} Use \texttt{git clone} to get the files for the
+first time}
+
+\vspace{.05\textwidth}
 \begin{enumerate}
-  \uncover<1->{\item \texttt{\$ git clone <remote repo URL>}}
+  \uncover<3->{\item \texttt{\$ git clone <remote repo URL>}}
 \end{enumerate}
 \end{frame}
 
 \subsection[Github]{Software Engineering with Github}
 
-\section{Be Brave!}
 \begin{frame}
-% \frametitle{``Hello''}
-% \framesubtitle{Subtitles are optional}
+\frametitle{What is github?}
 
-\ldots and then be strong\ldots
+\begin{figure}[!t] \centering
+\includegraphics[width=.4\textwidth]{figures/octocat}
+\end{figure}
+
+Github is a \alert{free*} git host.
+
+\uncover<2->{Free means:}
+\begin{itemize}
+  \uncover<3->{\item Infinite ($\infty$!) publically-accessible repositories}
+  \uncover<4->{\item Five free private repositories for students}
+\end{itemize}
 \end{frame}
-% \section*{Summary}
-% 
-% \begin{frame}
-% \frametitle<presentation>{Summary}
-% 
-% \begin{itemize}
-%   \item The \alert{first main message} of your talk in one or two lines.
-% \end{itemize}
-% 
-% % The following outlook is optional.
-% \vskip0pt plus.5fill
-% \begin{itemize}
-%   \item Outlook
-%   \begin{itemize}
-%     \item Something you haven't solved.
-%     \item Something else you haven't solved.
-%   \end{itemize}
-% \end{itemize}
-% \end{frame}
+
+\section{Be Brave!}
+\subsection[Learn by playing]{Learn by playing}
+\begin{frame}
+\frametitle{Be Brave!}
+\begin{itemize}
+\item git is \emph{tremendously} googlable.
+\item Breaking things (especially after a commit / push) is very difficult
+\item Play with it!
+\end{itemize}
+\end{frame}
 
 \begin{frame}[allowframebreaks]
   \frametitle<presentation>{References}    
