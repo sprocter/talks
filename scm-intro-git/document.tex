@@ -4,8 +4,8 @@
 %% template based on a template by Till Tantau
 %% this template is still evolving - it might differ in future releases!
 
-\documentclass[handout]{beamer}
-%\documentclass{beamer}
+% \documentclass[handout]{beamer}
+\documentclass{beamer}
 
 \mode<presentation>
 {
@@ -88,6 +88,24 @@ Kansas State University}
 \end{frame}
 
 \begin{frame}
+\frametitle{Before we begin}
+\begin{enumerate}
+  \uncover<1->{\item I'm not a git expert}
+  \begin{itemize}
+    \uncover<2->{\item But I use git \emph{every} day at my job}
+  \end{itemize} 
+  \uncover<3->{\item You can learn how to use git on your own}
+  \begin{itemize}
+    \uncover<4->{\item I'll show you a basic introduction and give you an
+    \emph{understanding} of git}
+  \end{itemize}
+  \uncover<5->{\item Follow along at:
+  \alert{http://people.cis.ksu.edu/\textasciitilde samprocter/git-intro.pdf}}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Outline}
 \tableofcontents
 % You might wish to add the option [pausesections]
@@ -99,26 +117,26 @@ Kansas State University}
 \subsection[Why Source Control?]{Why use source control?}
 
 \begin{frame}
-% \frametitle{``Hello''}
-% \framesubtitle{Subtitles are optional}
+\frametitle{Why use source control?}
+\uncover<1->{How do you share projects now?}
+
+\uncover<2->{What happens if\ldots}
+
 \begin{itemize}
-  \uncover<1->{\item How do you share projects now?}
-  \uncover<2->{\item What happens if\ldots}
-  \begin{itemize}
-    \uncover<3->{\item You delete some code but realize later that you need it?}
-	\uncover<4->{\item You do some work on a lab machine, and then want to work on
-	your pc at home?}
-	\uncover<5->{\item Your laptop dies?}
-	\uncover<6->{\item Two people change the same file?}
-  \end{itemize}
-  \uncover<7->{\item Solution: Source Control!}
+  \uncover<3->{\item You delete some code but realize later that you need it?}
+  \uncover<4->{\item You do some work on a lab machine, and then want to work on
+  your pc at home?}
+  \uncover<5->{\item Your laptop dies?}
+  \uncover<6->{\item Two people change the same file?}
 \end{itemize}
+\uncover<7->{Solution: Source Control!}
 
 \end{frame}
 
 \subsection[Source Control History]{A history of Source Control Tools}
 
 \begin{frame}
+\frametitle{A super-brief history of source control}
 \begin{table}
 \scriptsize
 \centering
@@ -128,7 +146,7 @@ Gen. & Networking & Operations & Concurrency & Examples \\\hline
 2 & Centralized & Multi-file & Merge before commit & CVS, SVN\\
 3 & Distributed & Changesets & Commit before merge & git, hg
 \end{tabulary}
-\caption{Adapted from \cite{sink:BOOK2011}}
+\caption{Source control through the years, adapted from \cite{sink:BOOK2011}}
 \end{table}
 \begin{enumerate}
   \uncover<1->{\item SCCS: 1972, File locks, no sharing at all}
@@ -276,22 +294,59 @@ first time}
 
 Github is a \alert{free*} git host.
 
-\uncover<2->{Free means:}
+\uncover<2->{* Free means:}
 \begin{itemize}
   \uncover<3->{\item Infinite ($\infty$!) publically-accessible repositories}
   \uncover<4->{\item Five free private repositories for students}
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Using github}
+
+\begin{figure}[!t] \centering
+\includegraphics[width=.8\textwidth]{figures/github-home}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Viewing the list of commits}
+
+\begin{figure}[!t] \centering
+\includegraphics[width=.8\textwidth]{figures/commit-history}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Viewing the details of a commit}
+
+\begin{figure}[!t] \centering
+\includegraphics[width=.8\textwidth]{figures/commit-diff}
+\end{figure}
+
+\end{frame}
+
 \section{Be Brave!}
+
 \subsection[Learn by playing]{Learn by playing}
+
 \begin{frame}
 \frametitle{Be Brave!}
+\begin{figure}[!t] \centering
+\includegraphics[width=.4\textwidth]{figures/jake-quote}
+\end{figure}
 \begin{itemize}
 \item git is \emph{tremendously} googlable.
 \item Breaking things (especially after a commit / push) is very difficult
 \item Play with it!
 \end{itemize}
+\uncover<2->{No seriously, try it right now with either:
+\begin{itemize}
+\item \alert{https://try.github.io}
+\item Your own github account
+\end{itemize}}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
