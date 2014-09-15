@@ -1,0 +1,17 @@
+<notes>
+  <note range="15-16">Linus fought with BitKeeper</note>
+  <note number="18">These are the most important slides in the talk.</note>
+  <note number="20">There are equivalent actions to pull and commit / add, but they aren't ones you'll use as a beginner</note>
+  <note number="23">Note that all commands look like "git <option> <more options>" So, let's talk about exactly what's going to happen here</note>
+  <note number="24">First, we move a and b to the staging area, using "git add"</note>
+  <note number="25">Then, we commit them -- this updates our local repository.  The -m option specifies a human-readable message</note>
+  <note number="26">Finally, we sync our local repository with "the cloud"</note>
+  <note number="29">Note that, by default, the -a flag won't add ignored files (so, files that git has no idea about)</note>
+  <note number="37">git init creates a hidden folder (.git) which contains all the information git uses to track everything</note>
+  <note number="38">Next, we add all the files in the current directory to our staging area</note>
+  <note number="39">Next, we commit the staging area's files to our fresh, local git repository</note>
+  <note number="40">Next, we tell git the name of our "cloud" (it's called a remote) and we name it "origin"</note>
+  <note number="41">Finally we sync with our new remote (origin) on a new branch called "master" -- we won't cover branching in this talk, but it's super cool</note>
+  <note number="44">And you can, of course, still add new files to your repository</note>
+  <note number="53">Remember how much easier cloning an existing repository was?  And you can still ad files to it...</note>
+</notes>

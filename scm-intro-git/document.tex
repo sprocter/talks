@@ -4,7 +4,7 @@
 %% template based on a template by Till Tantau
 %% this template is still evolving - it might differ in future releases!
 
-% \documentclass[handout]{beamer}
+%\documentclass[handout]{beamer}
 \documentclass{beamer}
 
 \mode<presentation>
@@ -114,7 +114,7 @@ Kansas State University}
 
 \section{Source Control Management}
 
-\subsection[Why Source Control?]{Why use source control?}
+\subsection[Source Control History]{A history of Source Control Tools}
 
 \begin{frame}
 \frametitle{Why use source control?}
@@ -123,17 +123,15 @@ Kansas State University}
 \uncover<2->{What happens if\ldots}
 
 \begin{itemize}
-  \uncover<3->{\item You delete some code but realize later that you need it?}
-  \uncover<4->{\item You do some work on a lab machine, and then want to work on
+  \uncover<2->{\item You delete some code but realize later that you need it?}
+  \uncover<2->{\item You do some work on a lab machine, and then want to work on
   your pc at home?}
-  \uncover<5->{\item Your laptop dies?}
-  \uncover<6->{\item Two people change the same file?}
+  \uncover<2->{\item Your laptop dies?}
+  \uncover<2->{\item Two people change the same file?}
 \end{itemize}
-\uncover<7->{Solution: Source Control!}
+\uncover<3->{Solution: Source Control!}
 
 \end{frame}
-
-\subsection[Source Control History]{A history of Source Control Tools}
 
 \begin{frame}
 \frametitle{A super-brief history of source control}
@@ -155,22 +153,25 @@ Gen. & Networking & Operations & Concurrency & Examples \\\hline
 \end{enumerate}
 \end{frame}
 
-\section{git}
-\subsection[Git Background]{Git Background}
 \begin{frame}
 \frametitle{Where did git come from?}
 \framesubtitle{``Git began with a bit of creative destruction and fiery
-controversy''\cite{sink:BOOK2011}}
+controversy''\cite{chacon:BOOK2009}}
 \begin{figure}[!t] \centering
 \includegraphics[width=.3\textwidth]{figures/git}
 \end{figure}
 Git was created by Linus Torvalds (and other Linux developers) with aims of:
 \begin{itemize}
-  \uncover<1->{\item Speed}
-  \uncover<1->{\item Simplicity}
-  \uncover<1->{\item Distributivity}
+  \uncover<2->{\item Speed}
+  \uncover<2->{\item Simplicity}
+  \uncover<2->{\item Distributivity}
 \end{itemize}
 \end{frame}
+
+
+\section{git}
+
+\subsection[Git Concepts]{Git Concepts}
 
 \begin{frame}
 \frametitle{Git Concepts}
@@ -184,18 +185,19 @@ Git was created by Linus Torvalds (and other Linux developers) with aims of:
 \end{figure}
 \begin{itemize}
   \uncover<1->{\item Working Directory: Your modified files}
-  \uncover<1->{\item Staging Area: Files To be shipped with the next commit}
+  \uncover<1->{\item Staging Area: Files to be shipped with the next commit}
   \uncover<2->{\item Git Directory: The official record}
-  \uncover<3->{\item The cloud: github, \textasciitilde yourname, etc.}
+  \uncover<3->{\item The cloud: github, cis.ksu.edu/\textasciitilde yourname,
+  etc.}
 \end{itemize}
 \end{frame}
 
-\subsection[Getting and making changes]{Getting and making changes}
+\subsection[Getting and Making Changes]{Getting and Making Changes}
 
 \begin{frame}
 \frametitle{Sharing changes with git commit \& push}
-\alert{Situation:} You've created three files -- a.txt, b.txt, and c.txt. You
-want to share a.txt and b.txt, but \emph{not} c.txt.
+\alert{Situation:} You've created two files---a.txt, b.txt---and you
+want to share both of them.
 
 \vspace{.05\textwidth}
 
@@ -328,6 +330,15 @@ Github is a \alert{free*} git host.
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Creating a new repository with github}
+
+\begin{figure}[!t] \centering
+\includegraphics[width=.8\textwidth]{figures/new-repo}
+\end{figure}
+
+\end{frame}
+
 \section{Be Brave!}
 
 \subsection[Learn by playing]{Learn by playing}
@@ -357,7 +368,7 @@ Github is a \alert{free*} git host.
     Eric Sink.
     \newblock {\em Version control by example}.
     \newblock Pyrenean Gold Press, 2011.
-  \bibitem{sink:BOOK2011}
+  \bibitem{chacon:BOOK2009}
     Scott Chacon.
     \newblock {\em Pro Git}.
     \newblock Apress, 2009.
