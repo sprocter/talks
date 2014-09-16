@@ -2,7 +2,7 @@
   <note range="15-16">Linus fought with BitKeeper</note>
   <note number="18">These are the most important slides in the talk.</note>
   <note number="20">There are equivalent actions to pull and commit / add, but they aren't ones you'll use as a beginner</note>
-  <note number="23">Note that all commands look like "git <option> <more options>" So, let's talk about exactly what's going to happen here</note>
+  <note number="23">Note that all commands look like "git option more options" So, let's talk about exactly what's going to happen here</note>
   <note number="24">First, we move a and b to the staging area, using "git add"</note>
   <note number="25">Then, we commit them -- this updates our local repository.  The -m option specifies a human-readable message</note>
   <note number="26">Finally, we sync our local repository with "the cloud"</note>
